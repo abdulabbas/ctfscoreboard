@@ -312,11 +312,11 @@ adminChallengeCtrls.controller('AdminChallengesCtrl', [
       if (!sessionService.requireAdmin()) return;
 
       var filterChallenges = function(challenges) {
-        if (!$routeParams.cid)
+        if (!$routeParams.slug)
           return challenges;
         var filtered = [];
         angular.forEach(challenges, function(ch) {
-          if (ch.cat_slug == $routeParams.cid)
+          if (ch.cat_slug == $routeParams.slug)
             filtered.push(ch);
         });
         return filtered;
@@ -330,8 +330,8 @@ adminChallengeCtrls.controller('AdminChallengesCtrl', [
             });
       };
 
-      $scope.catid = parseInt($routeParams.cid) || undefined;
-      $scope.categoryPage = !!$routeParams.cid;
+      $scope.slug = $routeParams.slug || undefined;
+      $scope.categoryPage = !!$routeParams.slug;
 
       $scope.lockChallenge = function(challenge, locked) {
         var copy = {};
@@ -363,7 +363,7 @@ adminChallengeCtrls.controller('AdminChallengesCtrl', [
       };
 
       $scope.newChallenge = function() {
-        adminStateService.saveCategory($scope.catid);
+        adminStateService.saveCategory($scope.slug);
         $location.path('/admin/challenge');
       };
 

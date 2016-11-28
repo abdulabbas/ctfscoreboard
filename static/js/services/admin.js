@@ -19,14 +19,14 @@ var adminServices = angular.module('adminServices', ['ngResource']);
 
 adminServices.service('adminStateService', [
     function() {
-      this.cid = null;
+      this.slug = null;
 
       this.saveCategory = function(cat) {
-        this.cid = (cat && cat.cid) || cat;
+        this.slug = (cat && cat.slug) || cat;
       };
 
       this.getCategory = function() {
-        return this.cid;
+        return this.slug;
       };
     }]);
 

@@ -90,7 +90,7 @@ scoreboardApp.config([
           templateUrl: '/partials/admin/attachments.html',
           controller: 'AdminAttachmentCtrl'
         }).
-        when('/admin/challenges/:cid?', {
+        when('/admin/challenges/:slug?', {
           templateUrl: '/partials/admin/challenges.html',
           controller: 'AdminChallengesCtrl'
         }).
